@@ -1,0 +1,98 @@
+{% extends 'header.html' %}
+{% block content %}
+<style>
+  body {
+    background-color: rgba(220, 220, 228, 0.2);
+  }
+
+  .inside-container {
+    height: 330px;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .img-block {
+    width: 45%;
+    height: 90%;
+    border-radius: 1rem;
+  }
+
+  .label-title,
+  .label-show_movie,
+  .label-description,
+  .label-release {
+    color: black;
+  }
+
+  .card {
+    color: grey;
+    border: none;
+    background-color: rgba(220, 220, 228, 0.2);
+  }
+
+  .card-body {
+    background: rgba(174, 174, 253, 0.3);
+    ;
+    border-radius: 0.5rem;
+    display: flex;
+    width: 60%;
+    margin-left: 18%;
+    color: green;
+    text-align: left;
+  }
+
+  .item-manage {
+    margin-left: -1rem;
+    margin-top: -1rem;
+  }
+
+  .go-back {
+    color: black;
+  }
+</style>
+<div class="container">
+  <div class="inside-container">
+    <br>
+    <img class="mh-100 mx-auto d-block img-block" src="{{url_for('static', filename='local')}}" alt="Image not found"
+      onerror="this.onerror=null;this.src='https://source.unsplash.com/NodtnCsLdTE/300x300';" />
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li>Title: <span class="label-title">{{item.title}}</span></li>
+          <li> Show/Movie: <span class="label-show_movie"> {{item.show}}</span> </li>
+          <li>Description: <div class="label-description">{{item.description}}</div>
+          </li>
+          <li> Release year: <span class="label-release">{{item.release}}</span></li>
+        </ul>
+      </div>
+      <div class="item-manage">
+        <a type="button" class="btn btn-sm btn-outline-primary"
+          href="{{url_for('editItem',  category_id=category.id, item_id=item_id)}}"> Edit</a>
+        <a type="button" class="btn btn-sm btn-outline-primary"
+          href="{{url_for('delItem',category_id=category_id, item_id=item_id)}}"> Delete</a>
+        <a type="button" class="btn btn-sm btn-outline-primary go-back" onclick="goBack()">Go Back</a>
+      </div>
+      <script>
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+    </div>
+  </div>
+
+</div>
+</div><!-- end of go-back  -->
+<div class="container-flash">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="alert {{ category }}"> {{ message|capitalize }} </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+</div>
+<!-- end of item-manage  -->
+
+</div>
+{%endblock%}

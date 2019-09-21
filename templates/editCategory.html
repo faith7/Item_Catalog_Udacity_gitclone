@@ -1,0 +1,38 @@
+  {% include 'header.html'%}
+  {% block content%}
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <form method="POST"> -->
+    <form method="POST" id="editCategory">
+      <style>
+        #editCategory {
+          color: green;
+          margin-top: 5rem;
+          margin-left: 3rem;
+          width: 70%;
+        }
+
+        @media (min-width: 768px) {
+          #editCategory {
+            color: green;
+            margin-top: 5rem;
+            margin-left: 10rem;
+            width: 75%;
+          }
+        }
+      </style>
+      <h4> Please update genre: {{editCat.genre}} </h4>
+      <div class="form-group">
+        <label for="genre"> Edit Category <i class="fa fa-1.5x fa-pencil-square-o"></i>: </label>
+        <input type="text" class="form-control" name="genre" placeholder="Update the category">
+      </div>
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <a href="{{ url_for('showCategory', category_id=editCat.id) }}">CANCEL</button>
+    </form>
+  </div>
+
+  {% endblock %}

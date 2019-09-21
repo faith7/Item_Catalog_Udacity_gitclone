@@ -1,0 +1,60 @@
+{% include 'header.html'%}
+{% block content%}
+
+<!-- 
+<link rel="stylesheet" href="../static/style_newCategory.css"> -->
+<!-- <div class="newCategory"> -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+  <form method="POST" id="newCategory">
+    <style>
+      #newCategory {
+        color: green;
+        margin-top: 5rem;
+        margin-left: 3rem;
+        width: 70%;
+      }
+
+      @media (min-width: 768px) {
+        #newCategory {
+          color: green;
+          margin-top: 5rem;
+          margin-left: 10rem;
+          width: 80%;
+        }
+      }
+    </style>
+    <h4> Please create a new category.</h4>
+    <hr>
+    <div class="form-group">
+      <label for="genre">NEW Category <i class="fa fa-1.5x fa-plus-circle"></i>: </label>
+      <input type="text" class="form-control" name="genre" placeholder="Type a new category" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="{{ url_for('showCategory', category_id=1) }}">CANCEL</button>
+  </form>
+</div>
+{% endblock %}
+
+
+<!-- <div class="container">
+  <div class="container-newCategory">
+    <h5>Please insert a new category</h5>
+    <form method="POST">
+      <div class="form">
+        <label>New Category: </label>
+        <input type="text" name="genre" placeholder="Type a new category" />
+      </div>
+      <button type="submit">Create</button> -->
+
+<!-- <a href="{{ url_for('showCategory',category_id=1) }}">Cancel</a>  -->
+
+<!-- <button type="submit">Cancel</button>
+  </div>
+</div>
+
+-->
